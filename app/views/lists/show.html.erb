@@ -1,0 +1,21 @@
+<div class="banner">
+   <%= image_tag "cinema.jpeg" ,  height: 300, width: "70%"%>
+</div>
+
+<h1 class="category-name"><strong><%= @list.name.capitalize %></strong></h1>
+<div class="row">
+  <% @list.bookmarks.each do |item| %>
+    <%# <div class="row-cols-1 row-cols-md-3 g-4"> %>
+      <div class="col-3">
+        <div class="card-product">
+          <img src="<%=item.movie.poster_url  %>" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title"><%= item.movie.title %></h5>
+            <p class="card-text"> <%= item.movie.overview %></p>
+            <%= link_to "Info", movies_path(item.movie) %>
+          </div>
+        </div>
+      </div>
+    <%# </div> %>
+  <% end %>
+</div>
